@@ -5,3 +5,4 @@
 4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
 
 Lien du site : https://jsr029.github.io/RakotonirinaJeanSebastien_4_29072021/starterOnly/
+[Link to Google](https://www.google.com)
