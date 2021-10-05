@@ -78,7 +78,7 @@ img {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-.error-message{
+.error-message, .error-messageN, .error-messageE, .error-messageD{
   font-size: 14px;
   color : red;
 }
@@ -107,7 +107,7 @@ img {
 
 
  @media screen and (max-width: 540px) {
-  .error-message{
+  .error-message, .error-messageN, .error-messageE, .error-messageD{
   font-size: 9px;
 }
 .topnav a {display: none;}

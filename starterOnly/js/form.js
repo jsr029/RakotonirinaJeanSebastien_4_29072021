@@ -8,6 +8,7 @@ let b_chkBx = false; let b_email = false; let b_location = false;
 /** Nom */
 /** On cible l'élément html id nom */
 const nom = document.querySelector("#nom");
+const errorMessageN = document.querySelector(".error-messageN");
 /** à la sortie du champ, afficher le nom dans la console */
 nom.onblur = afficherNom;
 /**Fonction afficher str s'il est valide */
@@ -20,8 +21,11 @@ function isValidNom(str) {
     if (regexNom.test(str) === true) {
         nom.style.border = "2px solid green";
         b_nom = true;
+        errorMessageN.style.display = "none";
         return str;
     } else {
+        errorMessageN.style.display = "block";
+        errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
         nom.style.border = "2px solid red";
         b_nom = false;
         return false;
@@ -57,6 +61,7 @@ function isValidPrenom(str) {
 /** Email */
 /** On cible l'élément html id Email */
 const email = document.querySelector("#email");
+const errorMessageE = document.querySelector(".error-messageE");
 /** à la sortie du champ, afficher le Prenom dans la console */
 email.onblur = afficherEmail;
 /**Fonction afficher str s'il est valide */
@@ -67,10 +72,13 @@ function afficherEmail() {
 function isValidEmail(str) {
     var regexEmail = /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/;
     if (regexEmail.test(str) === true) {
+        errorMessageE.style.display = "none";
         email.style.border = "2px solid green";
         b_email = true;
         return str;
     } else {
+        errorMessageE.style.display = "block";
+        errorMessageE.textContent = "L'email doit comporter @ et .";
         email.style.border = "2px solid red";
         b_email = false;
         return false;
@@ -80,6 +88,7 @@ function isValidEmail(str) {
 /** Date de naissance */
 /** On cible l'élément html id naissance */
 const naissance = document.querySelector("#naissance");
+const errorMessageD = document.querySelector(".error-messageD");
 /** à la sortie du champ, afficher le Prenom dans la console */
 naissance.onblur = afficherNaissance;
 /**Fonction afficher str s'il est valide */
@@ -95,9 +104,12 @@ function afficherNaissance() {
 function isValidNaissance(str) {
     var regexNaissance = /^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$/g;
     if (regexNaissance.test(str) === true) {
+        errorMessageD.style.display = "none";
         naissance.style.border = "2px solid green";
         return str;
     } else {
+        errorMessageD.style.display = "block";
+        errorMessageD.textContent = "La date n'est pas valide, ex : dd/mm/yyyy";
         naissance.style.border = "2px solid red";
         return false;
     }
