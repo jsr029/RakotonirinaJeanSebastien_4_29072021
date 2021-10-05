@@ -45,6 +45,9 @@ function isValidPrenom(str) {
         b_prenom = true;
         console.log(str);
     } else {
+        let prenomMessage = document.createElement('span');
+        prenom.prepend(prenomMessage);
+        prenomMessage.textContent="Le prénom doit être alphabetic entre 4 et 40 characters";
         prenom.style.border = "2px solid red";
         b_prenom = false;
     }
@@ -159,13 +162,24 @@ function chkbx() {
     }
 }
 /**Fin cgu et newsletters */
-/**Envoi du formulaire */
+/**Envoi de la notification */
 const notif = document.querySelector(".sendForm");
 function openNotif() {
     notif.style.display = "block";
 }
 function closeNotif() {
     notif.style.display = "none";
+    form.reset();
+}
+/**
+ * Fin Notification
+ */
+/** Envoi formulaire par la fermeture de la notification */
+const envoi = document.querySelector(".btn-send");
+envoi.addEventListener("click", sendForm);
+function sendForm(){
+    form.submit();
+    form.reset();
 }
 const form = document.querySelector("#formulaire");
 form.addEventListener("submit", function (evenement) {
@@ -178,7 +192,7 @@ form.addEventListener("submit", function (evenement) {
         // - fermer le modal display none
         closeModal();
         //Envoi du form
-        form.submit();
+        //form.submit();
         // - ouvrir la notification d'envoi
         openNotif();
         //vider le formulaire
