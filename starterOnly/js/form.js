@@ -109,7 +109,7 @@ function isValidNaissance(str) {
         return str;
     } else {
         errorMessageD.style.display = "block";
-        errorMessageD.textContent = "La date n'est pas valide, ex : dd/mm/yyyy";
+        errorMessageD.textContent = "La date n'est pas valide, ex : jj/mm/yyyy";
         naissance.style.border = "2px solid red";
         return false;
     }
@@ -118,6 +118,7 @@ function isValidNaissance(str) {
 /** nbreTournoi */
 /** On cible l'élément html input qui a pour id nbreTournoi */
 const nbreTournoi = document.querySelector("#nbreTournoi");
+const errorMessageT = document.querySelector(".error-messageT");
 /** à la sortie du champ, afficher le nbre de tournoi dans la console */
 nbreTournoi.onblur = afficherNbreTournoi;
 /**Fonction afficher str s'il est valide */
@@ -134,8 +135,11 @@ function isValidNbreTournoi(str) {
     var regexNbreTournoi = /^([0-9]){1,2}$/;
     if (regexNbreTournoi.test(str) === true) {
         nbreTournoi.style.border = "2px solid green";
+        errorMessageT.style.display = "none";
         return str;
     } else {
+        errorMessageT.style.display = "block";
+        errorMessageT.textContent = "Le nbre de tournoi doit être un entier compris entre 0 et 99";
         nbreTournoi.style.border = "2px solid red";
         return false;
     }
@@ -211,6 +215,21 @@ form.addEventListener("submit", function (evenement) {
         //vider le formulaire
         //form.reset();
     } else {
+        errorMessageN.style.display = "block";
+        errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
+        nom.style.border = "2px solid red";
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
+        prenom.style.border = "2px solid red";
+        errorMessageE.style.display = "block";
+        errorMessageE.textContent = "L'email doit comporter @ et .";
+        email.style.border = "2px solid red";
+        errorMessageD.style.display = "block";
+        errorMessageD.textContent = "La date n'est pas valide, ex : jj/mm/yyyy";
+        naissance.style.border = "2px solid red";
+        errorMessageT.style.display = "block";
+        errorMessageT.textContent = "Le nbre de tournoi doit être un entier compris entre 0 et 99";
+        nbreTournoi.style.border = "2px solid red";
         console.log("Not sent");
     }
     console.log(b_prenom);
