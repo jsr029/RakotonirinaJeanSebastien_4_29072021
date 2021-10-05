@@ -31,6 +31,7 @@ function isValidNom(str) {
 /** Prenom */
 /** On cible l'élément html id Prenom */
 const prenom = document.querySelector("#prenom");
+const errorMessage = document.querySelector(".error-message");
 /** à la sortie du champ, afficher le Prenom dans la console */
 prenom.onblur = afficherPrenom;
 /**Fonction afficher str s'il est valide */
@@ -41,13 +42,13 @@ function afficherPrenom() {
 function isValidPrenom(str) {
     var regexPrenom = /^([a-zA-Z -_]){4,40}$/;
     if (regexPrenom.test(str) === true) {
+        errorMessage.style.display = "none";
         prenom.style.border = "2px solid green";
         b_prenom = true;
         console.log(str);
     } else {
-        let prenomMessage = document.createElement('span');
-        prenom.prepend(prenomMessage);
-        prenomMessage.textContent="Le prénom doit être alphabetic entre 4 et 40 characters";
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
         prenom.style.border = "2px solid red";
         b_prenom = false;
     }
