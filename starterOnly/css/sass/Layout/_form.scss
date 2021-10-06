@@ -13,11 +13,26 @@
     font-size: 14px;
     color : red;
   }
-  .modal-body {
+  .modal-body, .modal-send {
     padding: 15px 8%;
     margin: 15px auto;
   }
-  
+  .modal-send{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+  }
+  .modal-text{
+    height: 50%;
+    text-align: center;
+    margin-top: 75%;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+  }
   .text-control {
     margin: 0;
     padding: 8px;

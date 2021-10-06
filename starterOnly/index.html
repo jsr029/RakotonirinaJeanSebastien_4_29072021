@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
@@ -71,8 +71,8 @@
                   name="prenom"
                   minlength="2"
                   />
-                  <span class="error-message"></span>
-                  <br>
+                <span class="error-message"></span>
+                <br>
               </div>
               <div
                 class="formData">
@@ -84,7 +84,7 @@
                   name="nom"
                   />
                 <span class="error-messageN"></span>
-              <br>
+                <br>
               </div>
               <div
                 class="formData">
@@ -95,8 +95,8 @@
                   id="email"
                   name="email"
                   />
-                  <span class="error-messageE"></span>
-                  <br>
+                <span class="error-messageE"></span>
+                <br>
               </div>
               <div
                 class="formData">
@@ -107,15 +107,15 @@
                   id="naissance"
                   name="naissance"
                   />
-                  <span class="error-messageD"></span>                  
-                  <br>
+                <span class="error-messageD"></span>
+                <br>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="nbreTournoi"
                   name="nbreTournoi" min="0" max="99">
-                  <span class="error-messageT"></span>                  
+                <span class="error-messageT"></span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
@@ -196,12 +196,12 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <input 
-                class="checkbox-input" 
-                type="checkbox" 
-                id="checkbox2" 
-                name="Newsleters"
-                />
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="checkbox2"
+                  name="Newsleters"
+                  />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je Je souhaite être prévenu des prochains évènements.
@@ -218,20 +218,23 @@
         </div>
       </div>
 
-                <div class="sendForm">
-                <div class="content">
-                  <span class="close"></span>
-                  <div class="modal-body #message">
-                    Thank you for
-                    submitting your
-                    registration details
-                    <button class="btn-send">
-                      Fermer
-                    </button>
-
-                  </div>
-                </div>
+      <div class="sendForm">
+        <div class="content">
+          <span class="close"></span>
+          <div class="modal-body #message">
+            <div class="modal-send">
+              <div class="modal-text">
+                Thank you for
+                submitting your
+                registration details
               </div>
+              <button class="btn-send">
+                Fermer
+              </button>
+            </div>
+        </div>
+        </div>
+      </div>
 
     </main>
     <footer>

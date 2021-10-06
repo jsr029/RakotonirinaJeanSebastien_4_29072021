@@ -102,9 +102,27 @@ input {
   color: red;
 }
 
-.modal-body {
+.modal-body, .modal-send {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.modal-send {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+}
+
+.modal-text {
+  height: 50%;
+  text-align: center;
+  margin-top: 75%;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
 }
 
 .text-control {
@@ -314,9 +332,27 @@ footer {
   color: red;
 }
 
-.modal-body {
+.modal-body, .modal-send {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.modal-send {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+}
+
+.modal-text {
+  height: 50%;
+  text-align: center;
+  margin-top: 75%;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
 }
 
 .text-control {
@@ -489,7 +525,7 @@ input[data-error]::after {
 }
 
 .btn-submit,
-.btn-signup {
+.btn-signup, .btn-send {
   background: #fe142f;
   display: block;
   margin: 0 auto;
