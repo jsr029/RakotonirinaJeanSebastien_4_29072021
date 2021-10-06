@@ -3,7 +3,7 @@ let b_nom = false; let b_prenom = false; let b_naissance = false; let b_nbreTour
 let b_chkBx = false; let b_email = false; let b_location = false;
 /** 1. Récupérer les valeurs entrées
  *  2. Vérifier leurs conformités
- *  3. Si vaalide,  envoi du formulaire, sinon retour à la saisie
+ *  3. Si valide,  envoi du formulaire, sinon retour à la saisie
  */
 /** Nom */
 /** On cible l'élément html id nom */
