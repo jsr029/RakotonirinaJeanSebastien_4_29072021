@@ -1,41 +1,32 @@
 /**LE FORMULAIRE */
-/** 1. Récupérer les valeurs entrées
- *  2. Vérifier leurs conformités
- *  3. Si valide,  renvoi vers nnotification, sinon pas de renvoi
- */
-/**Créer une variable booléenne pour chaque champ, elles serviront de
- * moyen de validation
-*/
 let b_nom = false; let b_prenom = false; let b_naissance = false; let b_nbreTournoi = false;
 let b_chkBx = false; let b_email = false; let b_location = false;
+/** 1. Récupérer les valeurs entrées
+ *  2. Vérifier leurs conformités
+ *  3. Si valide,  envoi du formulaire, sinon retour à la saisie
+ */
 /** Nom */
 /** On cible l'élément html id nom */
 const nom = document.querySelector("#nom");
 const errorMessageN = document.querySelector(".error-messageN");
 /** à la sortie du champ, afficher le nom dans la console */
 nom.onblur = afficherNom;
-/**Fonction afficher nom.value s'il est valide */
+/**Fonction afficher str s'il est valide */
 function afficherNom() {
     console.log(isValidNom(nom.value));
 }
-/** Fonction vérifiant la validité du nom par les règles du regexNom, alphabetic entre 4 et 40 characters */
+/** Fonction vérifiant la validité du nom par les règles du regexNom, alphabetic entre 3 et 40 characters */
 function isValidNom(str) {
     var regexNom = /^([a-zA-Z ]){4,40}$/;
     if (regexNom.test(str) === true) {
-        /**border à vert */
         nom.style.border = "2px solid green";
-        /**Booleen à true */
         b_nom = true;
-        /**Message d'erreur éteint */
         errorMessageN.style.display = "none";
+        return str;
     } else {
-        /**Message d'erreur visible */
         errorMessageN.style.display = "block";
-        /**Insere contenu text dans l'élément  Html ayant pour id error-messageN*/
         errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
-        /**Border du champ nom à rouge */
         nom.style.border = "2px solid red";
-        /**booleen à false */
         b_nom = false;
     }
 }
@@ -48,7 +39,7 @@ const errorMessage = document.querySelector(".error-message");
 prenom.onblur = afficherPrenom;
 /**Fonction afficher str s'il est valide */
 function afficherPrenom() {
-    return isValidPrenom(prenom.value);
+    console.log(isValidPrenom(prenom.value));
 }
 /** Fonction vérifiant la validité du Prenom par les règles du regexPrenom, alphabetic entre 3 et 40 characters */
 function isValidPrenom(str) {
@@ -57,7 +48,7 @@ function isValidPrenom(str) {
         errorMessage.style.display = "none";
         prenom.style.border = "2px solid green";
         b_prenom = true;
-        console.log(str);
+        return str;
     } else {
         errorMessage.style.display = "block";
         errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
@@ -78,8 +69,7 @@ function afficherEmail() {
 }
 /** Fonction vérifiant la validité de email par les règles du regexEmail, présence d'1 @ et d'1 . 
  * attendues alpha num _\. à gauche de @
- * alphanum uniquement à droite de @ avant . 2 à 10 caractères
- * alphe uniquement après . 2 à 10 caractères
+ * alphanum uniquement à droite de @ avant
  */
 function isValidEmail(str) {
     var regexEmail = /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/;
@@ -87,6 +77,7 @@ function isValidEmail(str) {
         errorMessageE.style.display = "none";
         email.style.border = "2px solid green";
         b_email = true;
+        return str;
     } else {
         errorMessageE.style.display = "block";
         errorMessageE.textContent = "L'email doit comporter @ et .";
@@ -116,6 +107,7 @@ function isValidNaissance(str) {
     if (regexNaissance.test(str) === true) {
         errorMessageD.style.display = "none";
         naissance.style.border = "2px solid green";
+        return str;
     } else {
         errorMessageD.style.display = "block";
         errorMessageD.textContent = "La date n'est pas valide, ex : jj/mm/yyyy";
@@ -144,6 +136,7 @@ function isValidNbreTournoi(str) {
     if (regexNbreTournoi.test(str) === true) {
         nbreTournoi.style.border = "2px solid green";
         errorMessageT.style.display = "none";
+        return str;
     } else {
         errorMessageT.style.display = "block";
         errorMessageT.textContent = "Le nbre de tournoi doit être un entier compris entre 0 et 99";
