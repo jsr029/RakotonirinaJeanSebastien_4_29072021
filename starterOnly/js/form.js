@@ -15,9 +15,9 @@ nom.onblur = afficherNom;
 function afficherNom() {
     console.log(isValidNom(nom.value));
 }
-/** Fonction vérifiant la validité du nom par les règles du regexNom, alphabetic entre 3 et 40 characters */
+/** Fonction vérifiant la validité du nom par les règles du regexNom, alphabetic entre 2 et 40 characters */
 function isValidNom(str) {
-    var regexNom = /^([a-zA-Z ]){4,40}$/;
+    var regexNom = /^([a-zA-Z-_ ]){2,40}$/;
     if (regexNom.test(str) === true) {
         nom.style.border = "2px solid green";
         b_nom = true;
@@ -25,7 +25,7 @@ function isValidNom(str) {
         return str;
     } else {
         errorMessageN.style.display = "block";
-        errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
+        errorMessageN.textContent = "Le nom doit comporter entre 2 et 40 characters alphabetics";
         nom.style.border = "2px solid red";
         b_nom = false;
     }
@@ -41,9 +41,9 @@ prenom.onblur = afficherPrenom;
 function afficherPrenom() {
     console.log(isValidPrenom(prenom.value));
 }
-/** Fonction vérifiant la validité du Prenom par les règles du regexPrenom, alphabetic entre 3 et 40 characters */
+/** Fonction vérifiant la validité du Prenom par les règles du regexPrenom, alphabetic entre 2 et 40 characters */
 function isValidPrenom(str) {
-    var regexPrenom = /^([a-zA-Z -_]){4,40}$/;
+    var regexPrenom = /^([a-zA-Z-_ ]){2,40}$/;
     if (regexPrenom.test(str) === true) {
         errorMessage.style.display = "none";
         prenom.style.border = "2px solid green";
@@ -51,7 +51,7 @@ function isValidPrenom(str) {
         return str;
     } else {
         errorMessage.style.display = "block";
-        errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
+        errorMessage.textContent = "Le prénom doit comporter entre 2 et 40 characters alphabetics";
         prenom.style.border = "2px solid red";
         b_prenom = false;
     }
@@ -148,32 +148,37 @@ function isValidNbreTournoi(str) {
 /** Ville */
 /** On cible l'élément html input qui a pour id location1 etc */
 const loc = document.querySelectorAll("[id^=location]");
+const errorMessageL = document.querySelector(".error-messageL");
 /**Ecouter évènement clic sur chaque id location, renvoie vers fonction loca */
 loc.forEach((rd) => rd.addEventListener("click", loca));
 function loca() {
-    for (let j = 0; j < 6; j++) {
+    for (let j = 0; j < loc.length; j++) {
         if (loc[j].checked === true) {
             b_location = true;
             console.log(loc[j].value);
+            errorMessageL.style.display = "none";
+        }else if(loc.forEach(item => item.checked === false)){
+            b_location = false;
+            errorMessageL.style.display = "block";
+            errorMessageL.textContent = "Veuillez choisir une ville";
         }
     }
 }
 /** Fin de Fin de ville */
 /** cgu et newsletters*/
-var chk = document.querySelectorAll("[id^=checkbox]");
-chk.onblur = chkbx;
+const chk = document.querySelectorAll("[id^=checkbox]");
+const errorMessageC = document.querySelector(".error-messageC");
+chk.forEach((ch) => ch.addEventListener("click", chkbx));
 function chkbx() {
-    chk[0].defaultChecked = true;
-    if (chk[0].checked === true && chk[1].checked === true || chk[1].checked === false) {
-        b_chkBx = true;
-        console.log("Agreements : " + chk[0].value);
-        console.log("Newsletters : " + chk[1].value);
-    } else {
-        b_chkBx = false;
-        chk[0].value = "No";
-        chk[1].value = "No";
-        console.log("Agreements : " + chk[0].value);
-        console.log("Newsletters : " + chk[1].value);
+    for(let h=0; h<chk.length;h++){
+        if(chk[0].checked === true){
+            b_chkBx = true;
+            errorMessageC.style.display = "none";
+        }else{
+            b_chkBx = false;
+            errorMessageC.style.display = "block";
+            errorMessageC.textContent = "Les conditions sont obligatoires";
+            }
     }
 }
 /**Fin cgu et newsletters */
@@ -199,7 +204,7 @@ function sendForm(){
 const form = document.querySelector("#formulaire");
 form.addEventListener("submit", function (evenement) {
     evenement.preventDefault();
-    if (chk[0].checked === true && b_email === true && b_location === true &&
+    if (chk[0].checked === true && b_email === true && b_email === true && b_location === true &&
         b_naissance === true && b_nbreTournoi === true && b_nom === true && b_prenom === true) {
         console.log("OK, sent");
         // true or false
@@ -213,21 +218,41 @@ form.addEventListener("submit", function (evenement) {
         //vider le formulaire
         //form.reset();
     } else {
-        errorMessageN.style.display = "block";
-        errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
-        nom.style.border = "2px solid red";
-        errorMessage.style.display = "block";
-        errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
-        prenom.style.border = "2px solid red";
-        errorMessageE.style.display = "block";
-        errorMessageE.textContent = "L'email doit comporter @ et .";
-        email.style.border = "2px solid red";
-        errorMessageD.style.display = "block";
-        errorMessageD.textContent = "La date n'est pas valide, ex : jj/mm/yyyy";
-        naissance.style.border = "2px solid red";
-        errorMessageT.style.display = "block";
-        errorMessageT.textContent = "Le nbre de tournoi doit être un entier compris entre 0 et 99";
-        nbreTournoi.style.border = "2px solid red";
+        if(b_nom === false){
+            errorMessageN.style.display = "block";
+            errorMessageN.textContent = "Le nom doit comporter entre 4 et 40 characters alphabetics";
+            nom.style.border = "2px solid red";
+        }
+        if(b_prenom === false){
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Le prénom doit comporter entre 4 et 40 characters alphabetics";
+            prenom.style.border = "2px solid red";
+        }
+        if(b_email === false){
+            errorMessageE.style.display = "block";
+            errorMessageE.textContent = "L'email doit comporter @ et .";
+            email.style.border = "2px solid red";
+        }
+        if(b_naissance === false){
+            errorMessageD.style.display = "block";
+            errorMessageD.textContent = "La date n'est pas valide, ex : jj/mm/yyyy";
+            naissance.style.border = "2px solid red";
+        }
+        if(b_nbreTournoi === false){
+            errorMessageT.style.display = "block";
+            errorMessageT.textContent = "Le nbre de tournoi doit être un entier compris entre 0 et 99";
+            nbreTournoi.style.border = "2px solid red";
+        }
+        if(b_location === false){
+        errorMessageL.style.display = "block";
+        errorMessageL.textContent = "Veuillez choisir une ville";
+        }
+        if(b_chkBx === false){
+            if(chk[0].checked === false ){
+                errorMessageC.style.display = "block";
+                errorMessageC.textContent = "Les conditions sont obligatoires";
+            }
+        }
         console.log("Not sent");
     }
     console.log(b_prenom);
