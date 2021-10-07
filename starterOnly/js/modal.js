@@ -39,6 +39,6 @@ function closeModalSend() {
 const logo = document.querySelector(".logoImage");
 logo.addEventListener("click", redirectHome);
 function redirectHome(){
-  window.location.href = "/starterOnly/";
+  window.location.href = "https://jsr029.github.io/RakotonirinaJeanSebastien_4_29072021/starterOnly/";
 }
 
