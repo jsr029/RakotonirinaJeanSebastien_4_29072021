@@ -36,5 +36,9 @@ function closeModalSend() {
   modalSend.style.display = "none";
   form.reset();
 }
-
+const logo = document.querySelector(".logoImage");
+logo.addEventListener("click", redirectHome);
+function redirectHome(){
+  window.location.href = "/starterOnly/";
+}
 
