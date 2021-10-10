@@ -44,7 +44,7 @@ function launchModal() {
         // cela empeche d'en renvoyer un autre au même moment
         openNotif();
       }else{
-        // autrement fait apparaitre le sélecteur modal-btn
+        // autrement fait apparaitre le sélecteur .bground, le modal
         modalbg.style.display = "block";
       }
   }else{
