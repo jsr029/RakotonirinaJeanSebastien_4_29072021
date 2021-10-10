@@ -35,7 +35,7 @@ function launchModal() {
     //affiche la chaine à droite de ?
       console.log(divideByPoint[1]);
       //sépare la chaine avant et après & et stocke dans dividebyAnd
-      const dividebyAnd = divideByPoint[1].split('&');
+      var dividebyAnd = divideByPoint[1].split('&');
       // si la première occurence n'est pas vide alors
       if(dividebyAnd[0] !== ''){
         // affiche dans la console le contenu
@@ -61,9 +61,9 @@ function closeModalSend() {
   modalSend.style.display = "none";
   form.reset();
 }
-const logo = document.querySelector(".logoImage");
+/*const logo = document.querySelector(".logoImage");
 logo.addEventListener("click", redirectHome);
 function redirectHome(){
   window.location.href = "https://jsr029.github.io/RakotonirinaJeanSebastien_4_29072021/starterOnly/";
-}
+}*/
 

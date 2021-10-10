@@ -184,7 +184,14 @@ function chkbx() {
 /**Fin cgu et newsletters */
 /**Envoi de la notification */
 const notif = document.querySelector(".sendForm");
+const textNotif = document.querySelector(".modal-text");
 function openNotif() {
+      const url = window.location.href;
+    if(url.includes("&")){
+        textNotif.innerHTML = "You have already been registered !";
+    }else{
+    textNotif.innerHTML = "Thank you for submitting your registration details";
+    }
     notif.style.display = "block";
 }
 function closeNotif() {
