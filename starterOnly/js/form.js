@@ -189,7 +189,7 @@ function openNotif() {
 }
 function closeNotif() {
     notif.style.display = "none";
-    form.reset();
+    //form.reset();
 }
 /**
  * Fin Notification
@@ -199,7 +199,8 @@ const envoi = document.querySelector(".btn-send");
 envoi.addEventListener("click", sendForm);
 function sendForm(){
     form.submit();
-    form.reset();
+   // window.location.reload(false);
+   // form.reset();
 }
 const form = document.querySelector("#formulaire");
 form.addEventListener("submit", function (evenement) {
@@ -263,4 +264,4 @@ form.addEventListener("submit", function (evenement) {
     console.log(b_nbreTournoi);
     console.log(chk[0].checked);
     console.log(chk[1].checked);
-});
+}, false);
