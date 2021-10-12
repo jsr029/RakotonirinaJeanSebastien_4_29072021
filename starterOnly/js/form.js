@@ -192,9 +192,9 @@ const textNotif = document.querySelector(".modal-text");
 function openNotif() {
       const url = window.location.href;
     if(url.includes("&")){
-        textNotif.innerHTML = "You have already been registered !";
+        textNotif.innerHTML = "Vous êtes déjà inscrit !";
     }else{
-    textNotif.innerHTML = "Thank you for submitting your registration details";
+    textNotif.innerHTML = "Merci d'avoir rempli le formulaire d'inscription.";
     }
     notif.style.display = "block";
 }
