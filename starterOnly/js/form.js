@@ -1,19 +1,23 @@
-/**LE FORMULAIRE */
+/**LE FORMULAIRE 
+ *  1. Récupérer les valeurs entrées
+ *  2. Vérifier leurs conformités
+ *  3. Si valides,  renvoi vers openNotif, sinon rester sur la saisie
+ *  4. à la fermeture de la notification, envoi du formulaire
+ *  5. Si clic sur le m'inscris, ouvrir notification déjà enregistré
+ */
+/** Déclaration variables boleennes */
 let b_nom = false; let b_prenom = false; let b_naissance = false; let b_nbreTournoi = false;
 let b_chkBx = false; let b_email = false; let b_location = false;
-/** 1. Récupérer les valeurs entrées
- *  2. Vérifier leurs conformités
- *  3. Si valide,  envoi du formulaire, sinon retour à la saisie
- */
 /** Nom */
 /** On cible l'élément html id nom */
 const nom = document.querySelector("#nom");
+/** On récupère l'élément Html ayant le sélecteur class error-messageN */
 const errorMessageN = document.querySelector(".error-messageN");
-/** à la sortie du champ, afficher le nom dans la console */
+/** à la sortie du champ à l'ID nom, renvoi vers la fonction afficherNom */
 nom.onblur = afficherNom;
-/**Fonction afficher str s'il est valide */
+/**Fonction afficherNom, retourne la valeur si valide */
 function afficherNom() {
-    console.log(isValidNom(nom.value));
+    return isValidNom(nom.value);
 }
 /** Fonction vérifiant la validité du nom par les règles du regexNom, alphabetic entre 2 et 40 characters */
 function isValidNom(str) {
@@ -39,7 +43,7 @@ const errorMessage = document.querySelector(".error-message");
 prenom.onblur = afficherPrenom;
 /**Fonction afficher str s'il est valide */
 function afficherPrenom() {
-    console.log(isValidPrenom(prenom.value));
+    return isValidPrenom(prenom.value);
 }
 /** Fonction vérifiant la validité du Prenom par les règles du regexPrenom, alphabetic entre 2 et 40 characters */
 function isValidPrenom(str) {
@@ -65,11 +69,11 @@ const errorMessageE = document.querySelector(".error-messageE");
 email.onblur = afficherEmail;
 /**Fonction afficher str s'il est valide */
 function afficherEmail() {
-    console.log(isValidEmail(email.value));
+    return isValidEmail(email.value);
 }
 /** Fonction vérifiant la validité de email par les règles du regexEmail, présence d'1 @ et d'1 . 
  * attendues alpha num _\. à gauche de @
- * alphanum uniquement à droite de @ avant
+ * alphanum uniquement à droite de @ avant .
  */
 function isValidEmail(str) {
     var regexEmail = /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/;
@@ -96,7 +100,7 @@ naissance.onblur = afficherNaissance;
 function afficherNaissance() {
     if (isValidNaissance(naissance.value)) {
         b_naissance = true;
-        console.log("date de naissance : " + naissance.value);
+        return ("date de naissance : " + naissance.value);
     } else {
         b_naissance = false;
     }
@@ -125,7 +129,7 @@ nbreTournoi.onblur = afficherNbreTournoi;
 function afficherNbreTournoi() {
     if (isValidNbreTournoi(nbreTournoi.value)) {
         b_nbreTournoi = true;
-        console.log("nbre de tournoi : " + nbreTournoi.value);
+        return ("nbre de tournoi : " + nbreTournoi.value);
     } else {
         b_nbreTournoi = false;
     }
@@ -155,7 +159,7 @@ function loca() {
     for (let j = 0; j < loc.length; j++) {
         if (loc[j].checked === true) {
             b_location = true;
-            console.log(loc[j].value);
+            //console.log(loc[j].value);
             errorMessageL.style.display = "none";
         }else if(loc.forEach(item => item.checked === false)){
             b_location = false;
@@ -263,12 +267,12 @@ form.addEventListener("submit", function (evenement) {
         }
         console.log("Not sent");
     }
-    console.log(b_prenom);
+    /*console.log(b_prenom);
     console.log(b_nom);
     console.log(b_email);
     console.log(b_naissance);
-    console.log(b_location);/**pb */
+    console.log(b_location);
     console.log(b_nbreTournoi);
     console.log(chk[0].checked);
-    console.log(chk[1].checked);
+    console.log(chk[1].checked);*/
 }, false);

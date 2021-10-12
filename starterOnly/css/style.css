@@ -21,6 +21,10 @@ body {
   margin: 0 auto;
 }
 
+main, footer, #myTopnav {
+  flex: 1;
+}
+
 p {
   margin-bottom: 0;
   padding: 0.5vw;
@@ -731,6 +735,27 @@ main {
   display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  #myTopnav {
+    max-width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header-logo {
+    width: 25%;
+  }
+
+  .logoImage {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .hero-content::after {
+    position: relative;
+  }
+}
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -817,6 +842,60 @@ main {
     float: right;
     display: block;
     /* margin-top: -15px;*/
+  }
+}
+@media screen and (max-width: 425px) {
+  .header-logo {
+    width: 50%;
+  }
+
+  .logoImage {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  #myTopnav {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  main {
+    margin: 0;
+  }
+
+  .main-navbar a {
+    font-size: 12px;
+    padding: 6px 6px;
+  }
+
+  .hero-section {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    align-items: center;
+  }
+
+  .hero-content {
+    min-width: 100px;
+    padding: 0 20px;
+  }
+
+  .hero-headline {
+    font-size: 1.5em;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .hero-text {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  footer {
+    padding-left: 0;
   }
 }
 @keyframes modalopen {
