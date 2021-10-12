@@ -210,7 +210,8 @@ const envoi = document.querySelector(".btn-send");
 envoi.addEventListener("click", sendForm);
 function sendForm(){
     form.submit();
-   // window.location.reload(false);
+    //modalbg.style.display = none;
+    //window.location.reload(false);
    // form.reset();
 }
 const form = document.querySelector("#formulaire");
