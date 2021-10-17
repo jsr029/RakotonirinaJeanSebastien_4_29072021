@@ -13,7 +13,7 @@
     text-align: unset;
   }
   .main-navbar{
-    width: 72%;
+    //width: 72%;
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -62,14 +62,23 @@
   }
 }
 @media screen and (max-width: 768px) {
-    .topnav a {display: none;}
+  .main-navbar{
+    //width: 72%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items:flex-start;
+  }
+  .hero-headline{
+    font-size: 1.5em;
+    width: 100%;
+    white-space: nowrap;
+  }
+ .topnav a {display: none;}
     .topnav a.icon {
       float: right;
       display: block;
     }
-  }
-  
-  @media screen and (max-width: 768px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
       position: absolute;

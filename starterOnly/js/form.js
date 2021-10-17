@@ -3,7 +3,7 @@
  *  2. Vérifier leurs conformités
  *  3. Si valides,  renvoi vers openNotif, sinon rester sur la saisie
  *  4. à la fermeture de la notification, envoi du formulaire
- *  5. Si clic sur le m'inscris, ouvrir notification déjà enregistré
+ *  5. Si clic sur je m'inscris, ouvrir notification déjà enregistré
  */
 /** Déclaration variables boleennes */
 let b_nom = false; let b_prenom = false; let b_naissance = false; let b_nbreTournoi = false;
